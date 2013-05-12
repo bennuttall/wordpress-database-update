@@ -29,4 +29,4 @@ UPDATE wp_options SET option_value = '$3' WHERE option_name IN ('siteurl', 'home
 UPDATE wp_posts SET post_content = REPLACE(post_content, '$2', '$3');
 ```
 
-This changes the ```siteurl``` and ```home``` settings in the ```wp-options``` and replaces all links inside post content (including internal links to media and to other posts)
+This changes the ```siteurl``` and ```home``` settings in the ```wp-options``` table and replaces all links inside post content (including internal links to media and to other posts)
