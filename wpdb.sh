@@ -2,7 +2,7 @@
 
 usage()
 {
-    echo "usage: wpdb DATABASE OLD_URL NEW_URL" >&2
+    echo "Usage: wpdb DATABASE OLD_URL NEW_URL" >&2
     exit 1
 }
 
@@ -16,12 +16,12 @@ do
          -h|--help) usage ;;
          --) shift; break;;  # no more options
          -*) usage ;; 
-         *) break;; # not option, its some argument
+         *) break;; # not an option, it's some argument
        esac
        shift
 done
 
-mysql -uUSER -pPASS $1 -Bse "
+mysql $1 -Bse "
 UPDATE wp_options SET option_value = '$3' WHERE option_name IN ('siteurl', 'home');
 UPDATE wp_posts SET post_content = REPLACE(post_content, '$2', '$3');
 "
